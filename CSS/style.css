@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+#container h2 {
+    font-size: 4vw;
+    text-align: center;
+}
+
+#container h2 span {
+    text-decoration: underline;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    border: 3px solid #000;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: black;
+    width: 64vw;
+    background-color: white;
+    margin: auto;
+}
+
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: #000;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 350ms;
+}
+
+.input:focus,
+input:valid {
+    outline: none;
+    --angle: 0deg;
+    border-bottom: 3px solid;
+    border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+    animation: 3s rotate9234 linear infinite;
+}
+
+@keyframes rotate9234 {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.input:focus~label,
+input:valid~label {
+    transform: translateY(260%) scale(1);
+    padding: 0 .2em;
+    color: #2196f3;
+    border-radius: 6px;
+}
+
+.attribution {
+    padding: 5px 20px;
+    background-color: #101010;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #f1f1f1;
+}
+
+.attribution a {
+    color: rgb(76, 62, 228);
+}
+
+/* ----------------- Responsiveness ----------------------- */
+
+@media only screen and (max-width: 768px) {
+    #container h2 {
+        font-size: 6vw;
+    }
+
+    .user-label {
+        font-size: 4vw;
+        line-height: 28px;
+    }
+
+    
+}
